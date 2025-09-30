@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Join a Watch Party</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+    <!-- NEW: Added Material Icons for the new button -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <style>
+        :root {
+            --bg-color: #141414;
+            --surface-color: #1F1F1F;
+            --primary-text-color: #EAEAEA;
+            --accent-color: #FFA500;
+            --accent-hover: #FFC14D;
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--primary-text-color);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .join-container {
+            background-color: var(--surface-color);
+            padding: 40px;
+            border-radius: 12px;
+            text-align: center;
+            box-shadow: 0 8px 30px rgba(0,0,0,0.3);
+            width: 100%;
+            max-width: 400px;
+        }
+        h1 {
+            margin-bottom: 30px;
+        }
+        .input-group {
+            margin-bottom: 20px;
+            text-align: left;
+        }
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+        }
+        input {
+            width: 100%;
+            padding: 12px;
+            border-radius: 8px;
+            border: 1px solid #444;
+            background-color: #2a2a2a;
+            color: var(--primary-text-color);
+            font-size: 16px;
+        }
+        /* NEW: Wrapper for the Room ID input and the new button */
+        .room-id-wrapper {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        /* NEW: Style for the generate button */
+        #generate-room-btn {
+            background: none;
+            border: 1px solid #444;
+            color: var(--primary-text-color);
+            border-radius: 8px;
+            height: 45px;
+            width: 50px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background-color 0.2s, border-color 0.2s;
+        }
+        #generate-room-btn:hover {
+            background-color: #2a2a2a;
+            border-color: var(--accent-color);
+        }
+        #join-btn {
+            width: 100%;
+            padding: 14px;
+            border: none;
+            border-radius: 8px;
+            background-color: var(--accent-color);
+            color: #141414;
+            font-size: 16px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: background-color 0.2s;
+            margin-top: 10px;
+        }
+        #join-btn:hover {
+            background-color: var(--accent-hover);
+        }
+    </style>
+</head>
+<body>
+<div class="join-container">
+    <h1>Create or Join a Room</h1>
+    <form id="join-form">
+        <div class="input-group">
+            <label for="username">Your Name</label>
+            <input type="text" id="username" placeholder="e.g., Rohan" required>
+        </div>
+        <div class="input-group">
+            <label for="roomId">Room ID</label>
+            <!-- NEW: Input is now inside a wrapper with the button -->
+            <div class="room-id-wrapper">
+                <input type="text" id="roomId" placeholder="Enter or generate an ID">
+                <button type="button" id="generate-room-btn" title="Generate Random ID">
+                    <i class="material-icons">casino</i>
+                </button>
+            </div>
+        </div>
+        <button type="submit" id="join-btn">Join Watch Party</button>
+    </form>
+</div>
+
+<script>
+    // NEW: Event listener for the generate button
+    document.getElementById('generate-room-btn').addEventListener('click', function() {
+        const randomId = 'room-' + Math.random().toString(36).substring(2, 8);
+        document.getElementById('roomId').value = randomId;
+    });
+
+    document.getElementById('join-form').addEventListener('submit', function(event) {
+        event.preventDefault();
+
+        const user = document.getElementById('username').value.trim();
+        let room = document.getElementById('roomId').value.trim();
+
+        // Fallback: If room ID is still empty after all, generate one.
+        if (!room) {
+            room = 'room-' + Math.random().toString(36).substring(2, 8);
+        }
+
+        // Redirect to the player page with user and room info
+        window.location.href = `player.html?user=${encodeURIComponent(user)}&room=${encodeURIComponent(room)}`;
+    });
+</script>
+</body>
+</html>

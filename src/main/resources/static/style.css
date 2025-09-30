@@ -1,0 +1,119 @@
+body {
+    margin: 0;
+    font-family: 'Segoe UI', sans-serif;
+    background-color: #0f111a;
+    color: white;
+}
+
+.app-container {
+    display: flex;
+    padding: 40px;
+    gap: 30px;
+    box-sizing: border-box;
+}
+
+.video-chat-area {
+    flex: 2;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.video-container {
+    background: #1c1f2e;
+    padding: 10px;
+    border-radius: 20px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.3);
+}
+
+video {
+    width: 100%;
+    border-radius: 10px;
+}
+
+.avatars {
+    display: flex;
+    justify-content: space-around;
+    gap: 10px;
+}
+
+.avatar {
+    text-align: center;
+    font-size: 13px;
+    color: #ccc;
+}
+
+.avatar img {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background-color: #f0f0f0;
+}
+
+.chat-panel {
+    flex: 1;
+    background-color: #1c1f2e;
+    border-radius: 20px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 500px;
+    max-height: 720px;
+}
+
+.messages {
+    display: flex;
+    flex-direction: column-reverse;
+    gap: 20px;
+    overflow-y: auto;
+    flex: 1;
+    padding-right: 5px;
+}
+
+.message span {
+    font-size: 13px;
+    color: #aaa;
+    display: block;
+    margin-bottom: 5px;
+}
+
+.bubble {
+    background-color: #2b2f3e;
+    border-radius: 12px;
+    padding: 10px 14px;
+    font-size: 14px;
+    color: white;
+    width: fit-content;
+    max-width: 100%;
+}
+
+.chat-input-container {
+    display: flex;
+    align-items: center;
+    background-color: #2b2f3e;
+    border-radius: 12px;
+    margin-top: 15px;
+    padding: 8px 12px;
+}
+
+.chat-input-container input {
+    flex: 1;
+    background: transparent;
+    border: none;
+    outline: none;
+    color: white;
+    font-size: 14px;
+}
+
+.chat-input-container button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: #888;
+    padding: 0 5px;
+}
+
+.chat-input-container i.material-icons {
+    font-size: 20px;
+}
