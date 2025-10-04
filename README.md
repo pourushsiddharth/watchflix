@@ -69,6 +69,7 @@ watchflix/
 ## 🚀 Installation
 
 ### Prerequisites
+
 - Java 17 or higher
 - Maven 3.6+
 - Docker (optional, for containerized deployment)
@@ -100,12 +101,13 @@ watchflix/
    ```
 
 4. **Access the application**
-   - Open your browser and navigate to `http://localhost:8080`
-   - Start with the join page: `http://localhost:8080/join.html`
+   - Open your browser and navigate to http://localhost:8080
+   - Start with the join page: http://localhost:8080/join.html
 
 ## 🐳 Docker Deployment
 
 ### Build Docker Image
+
 ```bash
 # Build the application first
 ./mvnw clean package
@@ -115,6 +117,7 @@ docker build -t watchflix:latest .
 ```
 
 ### Run Docker Container
+
 ```bash
 docker run -p 8080:8080 watchflix:latest
 ```
@@ -123,7 +126,7 @@ docker run -p 8080:8080 watchflix:latest
 
 ### Creating/Joining a Watch Party
 
-1. Navigate to `http://localhost:8080/join.html`
+1. Navigate to http://localhost:8080/join.html
 2. Enter your desired room ID
 3. Click "Join Room" to enter the watch party
 4. Share the room ID with friends so they can join
@@ -151,8 +154,9 @@ docker run -p 8080:8080 watchflix:latest
 ### WebSocket Endpoints
 
 #### Chat
-- **Subscribe**: `/topic/chat/{roomId}`
-- **Send**: `/app/chat/{roomId}`
+
+- **Subscribe**: /topic/chat/{roomId}
+- **Send**: /app/chat/{roomId}
 - **Message Format**:
   ```json
   {
@@ -163,8 +167,9 @@ docker run -p 8080:8080 watchflix:latest
   ```
 
 #### Video Synchronization
-- **Subscribe**: `/topic/video-sync/{roomId}`
-- **Send**: `/app/video-sync/{roomId}`
+
+- **Subscribe**: /topic/video-sync/{roomId}
+- **Send**: /app/video-sync/{roomId}
 - **Video State Format**:
   ```json
   {
@@ -176,27 +181,28 @@ docker run -p 8080:8080 watchflix:latest
   ```
 
 #### WebRTC Signaling
-- **Subscribe**: `/topic/webrtc/{roomId}`
-- **Send**: `/app/webrtc/{roomId}`
-- **Signal Types**: `offer`, `answer`, `ice-candidate`
+
+- **Subscribe**: /topic/webrtc/{roomId}
+- **Send**: /app/webrtc/{roomId}
+- **Signal Types**: offer, answer, ice-candidate
 
 ## 🌐 Deployment
 
 ### Deploying to Render
 
-1. **Create a new Web Service** on [Render](https://render.com)
-2. **Connect your GitHub repository**
-3. **Configure the service**:
-   - **Build Command**: `./mvnw clean package`
-   - **Start Command**: `java -jar target/*.jar`
-   - **Environment**: Docker (or Native)
-4. **Set environment variables** (if needed):
+1. Create a new Web Service on [Render](https://render.com/)
+2. Connect your GitHub repository
+3. Configure the service:
+   - Build Command: `./mvnw clean package`
+   - Start Command: `java -jar target/*.jar`
+   - Environment: Docker (or Native)
+4. Set environment variables (if needed):
    - `SERVER_PORT`: 8080
-5. **Deploy** and wait for the build to complete
+5. Deploy and wait for the build to complete
 
 ### Environment Variables
 
-```properties
+```bash
 SERVER_PORT=8080
 SPRING_WEBSOCKET_MESSAGE_SIZE_LIMIT=65536
 ```
@@ -212,20 +218,20 @@ Run the test suite:
 
 Contributions are welcome! Here's how you can help:
 
-1. **Fork the repository**
-2. **Create a feature branch**
+1. Fork the repository
+2. Create a feature branch
    ```bash
    git checkout -b feature/AmazingFeature
    ```
-3. **Commit your changes**
+3. Commit your changes
    ```bash
    git commit -m 'Add some AmazingFeature'
    ```
-4. **Push to the branch**
+4. Push to the branch
    ```bash
    git push origin feature/AmazingFeature
    ```
-5. **Open a Pull Request**
+5. Open a Pull Request
 
 ### Contribution Guidelines
 
@@ -235,13 +241,10 @@ Contributions are welcome! Here's how you can help:
 - Update documentation as needed
 - Ensure all tests pass before submitting PR
 
-## 📝 License
-
-This project is open source and available under the [MIT License](LICENSE).
-
 ## 👤 Author
 
 **Pourush Siddharth**
+
 - GitHub: [@pourushsiddharth](https://github.com/pourushsiddharth)
 
 ## 🙏 Acknowledgments
@@ -253,6 +256,7 @@ This project is open source and available under the [MIT License](LICENSE).
 ## 📧 Support
 
 If you have any questions or run into issues, please:
+
 - Open an issue on GitHub
 - Check existing issues for solutions
 - Review the documentation
