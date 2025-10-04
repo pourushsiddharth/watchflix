@@ -32,10 +32,6 @@ WatchFlix is a Spring Boot-based web application that allows multiple users to w
 - **WebRTC API** - Peer-to-peer communication
 - **STOMP.js** - WebSocket client library
 
-### Deployment
-- **Docker** - Containerization
-- **Render** - Cloud hosting platform
-
 ## 📁 Project Structure
 
 ```
@@ -185,27 +181,6 @@ docker run -p 8080:8080 watchflix:latest
 - **Subscribe**: /topic/webrtc/{roomId}
 - **Send**: /app/webrtc/{roomId}
 - **Signal Types**: offer, answer, ice-candidate
-
-## 🌐 Deployment
-
-### Deploying to Render
-
-1. Create a new Web Service on [Render](https://render.com/)
-2. Connect your GitHub repository
-3. Configure the service:
-   - Build Command: `./mvnw clean package`
-   - Start Command: `java -jar target/*.jar`
-   - Environment: Docker (or Native)
-4. Set environment variables (if needed):
-   - `SERVER_PORT`: 8080
-5. Deploy and wait for the build to complete
-
-### Environment Variables
-
-```bash
-SERVER_PORT=8080
-SPRING_WEBSOCKET_MESSAGE_SIZE_LIMIT=65536
-```
 
 ## 🧪 Testing
 
